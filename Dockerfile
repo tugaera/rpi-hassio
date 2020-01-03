@@ -13,7 +13,7 @@ RUN systemctl start docker.service
 RUN docker info
 
 RUN apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common
-
+RUN mkdir /sharedfolders && mkdir /sharedfolders/AppData && mkdir /sharedfolders/AppData/HA
 RUN curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install" | bash -s -- -m raspberrypi4 -d "/sharedfolders/AppData/HA"
 
 CMD systemctl start hassio-supervisor.service
